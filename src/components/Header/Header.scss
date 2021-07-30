@@ -1,0 +1,62 @@
+@import '../variables.scss';
+.headerContainer {
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    background-color: $navBackground;
+    justify-content: space-evenly;
+    border-bottom: 1px solid $borders;
+    padding: 0.5rem 0;
+    position: fixed;
+    width: 100vw;
+    z-index: 999;
+    a{
+        display: block;
+        border-radius: 6px;
+        padding: 0 1rem 0.1rem 1rem;
+        font-size: 1rem;
+        text-decoration: none;
+        border: 1px dashed $buttonBorder;
+    }
+    .active > a {
+        background-color: $activeButton;
+        color: $activeBtnText;
+        transition: background-color .2s ease-in-out;
+        border: 1px solid $activeBtnHover;
+        &:hover {
+            background-color: $activeBtnHover;
+            border: 1px solid $activeBtnHover;
+        }
+        &:focus {
+            outline-width: 0px;
+        }
+        &:active {
+            background-color:$activeBtnActive;
+            border: 1px solid $activeBtnActive;
+        }
+    }
+    .inactive > a {
+        background-color:$inactiveButton;
+        color: $inactiveBtnText;
+        transition: background-color .2s ease-in-out;
+        &:hover {
+            background-color:$inactiveBtnHover;
+            border: 1px solid $inactiveBtnHover;
+            color: $inactiveBtnTextHover;
+        }
+        &:focus {
+            outline-width: 0px;
+        }
+        &:active {
+            background-color:$inactiveBtnActive;
+            border: 1px solid $inactiveBtnActive;
+        }
+    }
+}
+@media screen and (prefers-reduced-motion: reduce) {  
+    * {
+      /* Very short durations means JavaScript that relies on events still works */
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
